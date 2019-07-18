@@ -23,7 +23,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BookingPage } from '../pages/booking/booking';
-import { CalendarModule } from 'ionic3-calendar';
 
 
 @NgModule({
@@ -46,7 +45,6 @@ import { CalendarModule } from 'ionic3-calendar';
     ReactiveFormsModule,
     NgxErrorsModule,
     AngularFireDatabaseModule,
-    CalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
