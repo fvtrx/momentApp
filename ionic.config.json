@@ -1,0 +1,7 @@
+{
+  "name": "momentApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

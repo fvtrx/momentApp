@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>
+    <div id="appLogo">
+        <img src="../../assets/imgs/momentlogo.png">
+    </div>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="md-exit" color="dark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+    <!-- <div id="bookButton">
+      <button ion-button full>Book</button>
+    </div> -->
+
+     <ion-card id="cardHeader">
+        <div id="headerTitle">
+           <h3>Hello, {{(userData | async)?.firstName}}</h3>
+            <p>" Photography are now ready<br>at your service within your hand "</p>
+        </div>
+     </ion-card>
+
+     <div id="contentHeader">
+       <h3>Why choose Moment?</h3>
+       <p>Let us tell you why..</p>
+     </div>
+
+    <ion-card>
+      <img src="../../assets/imgs/camera-phone-laptop-a-photographer-s-desk.jpg"/>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <img src="../../assets/imgs/camera-phone-laptop-a-photographer-s-desk.jpg"/>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>

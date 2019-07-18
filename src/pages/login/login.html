@@ -1,0 +1,43 @@
+<ion-grid>
+  <form (ngSubmit)="login()" [formGroup]="loginForm">>
+    <ion-row>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h4>Login</h4>
+        </div>
+
+          <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="email" ></ion-input>>
+          </ion-item>
+
+          <div ngxErrors="email" #emailErrors="ngxErrors" class="div-error">
+            <div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']" class="text-valid">It should be a valid email</div>
+          </div>
+
+         <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password" ></ion-input>>
+          </ion-item>
+
+          <div ngxErrors="password" #passwordErrors="ngxErrors" class="div-error">
+            <div [ngxError]="['minlength', 'required']" [when]="['touched']" class="text-valid">It should be at least 6 characters</div>
+          </div>
+
+          <p padding>
+            Don't have an account? <a (click)="register()">Register</a> now.
+          </p>
+
+          <div class="form-error">
+            {{loginError}}
+          </div>
+
+        <div padding>
+            <button ion-button full type="submit">Login</button>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-grid>
+
