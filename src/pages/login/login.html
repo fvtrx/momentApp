@@ -1,7 +1,6 @@
 <ion-grid>
-  <form (ngSubmit)="login()" [formGroup]="loginForm">>
     <ion-row>
-      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+      <form id="loginForm" (ngSubmit)="login()" [formGroup]="loginForm">
         <div text-center>
           <h4>Login</h4>
         </div>
@@ -36,8 +35,7 @@
             <button ion-button full type="submit">Login</button>
         </div>
 
-      </ion-col>
+        </form>
     </ion-row>
-  </form>
 </ion-grid>
 

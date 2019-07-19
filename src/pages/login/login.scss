@@ -11,12 +11,12 @@ ion-grid {
     background: #dfdfdf;
 }
 
-form {
-  height: $height100 ;
-}
-
 ion-row {
     height: $height100;
+  > form {
+    height: $height100 ;
+    margin-top: 25%;
+  }
 }
 
 ion-col {
