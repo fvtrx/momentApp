@@ -21,7 +21,7 @@ export class MyApp {
 
   // userData: Observable<any>
 
-  rootPage: any = TabsPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
   menu: any;
@@ -73,12 +73,12 @@ export class MyApp {
 
   login() {
     this.menu.close();
-    this.auth.signOut();
+    this.auth.logOutUser();
     this.nav.setRoot(LoginPage);
   }
 
-  logout() {
-    const root = this.app.getRootNav();
-    root.popToRoot();
-  }
+  // logout() {
+  //   const root = this.app.getRootNav();
+  //   root.popToRoot();
+  // }
 }
