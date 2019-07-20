@@ -46,8 +46,7 @@ export class HomePage {
     }
 
     logOut(): void {
-      const logout = this.auth.logOutUser().then( () => {
-        if (logout) {
+      this.auth.logOutUser().then( response => {
           let alert = this.alertCtrl.create({
             title: 'Success!',
             subTitle: 'You have been logout from Moment',
@@ -55,7 +54,6 @@ export class HomePage {
           });
           alert.present();
           this.navCtrl.setRoot(LoginPage);
-        }
       });
 
       // if (logout) {

@@ -7,14 +7,17 @@
 <ion-grid>
   <ion-row>
     <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+      <div id="appLogo">
+          <img src="../../assets/imgs/momentlogo.png">
+      </div>
       <div text-center>
         <h4>Register</h4>
       </div>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label floating>Name</ion-label>
           <ion-input type="text" [(ngModel)]="user.name" ></ion-input>>
-        </ion-item>
+        </ion-item> -->
 
         <ion-item>
           <ion-label floating>Email</ion-label>
@@ -26,10 +29,10 @@
           <ion-input type="password" [(ngModel)]="user.password" ></ion-input>>
         </ion-item>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label floating>Confirm Password</ion-label>
           <ion-input type="password" [(ngModel)]="user.confirm_password" ></ion-input>>
-        </ion-item>
+        </ion-item> -->
 
         <p padding>
           Have an account? <a (click)="login()">Login</a> now.

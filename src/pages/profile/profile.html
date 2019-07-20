@@ -72,8 +72,11 @@
 
       <label for="password">Password</label>
       <input type="password" [(ngModel)]="user.password" name="password" placeholder="Your password" autocomplete="off" /> -->
+
+      <label for="address">Address</label>
+      <input type="text" [(ngModel)]="user.address" name="address" placeholder="Your last name" autocomplete="off" />
     </form>
 
-    <button ion-button class="edit-button" (click)="updateProfile()">Edit Profile</button>
+    <button ion-button class="edit-button" (click)="updateProfile()" >Edit Profile</button>
 
 </ion-content>

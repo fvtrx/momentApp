@@ -21,6 +21,30 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
+
+    <ion-card id="cardHeader">
+       <div id="headerTitle">
+          <h3>Bookings</h3>
+          <p>Book for your photoshoot reservations now<br>
+            Just fill up your preferred details
+          </p>
+       </div>
+    </ion-card>
+
+    <form >
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" placeholder="Your first name" autocomplete="off" required/>
+
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" placeholder="Your last name" autocomplete="off" />
+
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" placeholder="Your first name" autocomplete="off" required/>
+    </form>
+
+    <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="date_today"></ion-datetime>
+
+    <button ion-button full>Book</button>
 
 </ion-content>

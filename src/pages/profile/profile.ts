@@ -31,9 +31,9 @@ export class ProfilePage {
     public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
-  async updateProfile() {
+  updateProfile() {
     try {
-      const update = await this.afAuth.authState.take(1).subscribe(auth => {
+      const update = this.afAuth.authState.subscribe(auth => {
         this.afDatabase.object(`user/${auth.uid}`).set(this.user)
       });
       if (update) {

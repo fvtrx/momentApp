@@ -7,6 +7,7 @@ import { RegisterPage } from '../register/register';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { AuthService } from '../../providers/auth-service/auth.service';
 import { TabsPage } from '../tabs/tabs';
+import { User } from '../../models/user';
 
 @IonicPage({
   name: 'login'
@@ -21,7 +22,7 @@ export class LoginPage {
   loginForm: FormGroup;
   loginError: string;
 
-  // user = {} as User;
+  user = {} as User;
 
   constructor( private auth: AuthService,
     public navCtrl: NavController, public navParams: NavParams,
@@ -34,57 +35,23 @@ export class LoginPage {
   }
 
   login() {
-    try{
-      let data = this.loginForm.value;
-
-      if (!data.email) {
-        return;
-      }
-
-      let credentials = {
-        email: data.email,
-        password: data.password
-      };
-
-      this.auth.signInWithEmail(credentials)
-        .then(
-          () => this.navCtrl.setRoot(TabsPage),
-          error => this.loginError = error.message,
-      );
-      this.navCtrl.setRoot(TabsPage);
-    }
-    catch (e) {
-      if (e) {
+    this.auth.signInWithEmail(this.loginForm.value)
+    .then(response => {
+        this.navCtrl.setRoot(TabsPage);
+    })
+    .catch(error => {
+      if(this.loginForm) {
         let alert = this.alertCtrl.create({
-          title: 'Error!',
-          subTitle: 'Please enter your details and try again.',
-          buttons: ['OK']
+           title: 'Error!',
+           subTitle: 'Please enter your correct credential and try again.',
+           buttons: ['OK']
         });
         alert.present();
       }
-    }
+    })
+
 
   }
-
-  // async login(user: User) {
-  //   try{
-  //     const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
-  //     if (result) {
-  //       this.navCtrl.setRoot(HomePage);
-  //     }
-  //   }
-  //   catch (e) {
-  //     if (e) {
-  //       let alert = this.alertCtrl.create({
-  //         title: 'Error!',
-  //         subTitle: 'Please enter your details and try again.',
-  //         buttons: ['OK']
-  //       });
-  //       alert.present();
-  //     }
-  //   }
-
-  // }
 
   register(){
     this.navCtrl.push(RegisterPage);

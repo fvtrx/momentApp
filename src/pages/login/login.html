@@ -1,13 +1,16 @@
 <ion-grid>
     <ion-row>
       <form id="loginForm" (ngSubmit)="login()" [formGroup]="loginForm">
+        <div id="appLogo">
+            <img src="../../assets/imgs/momentlogo.png">
+        </div>
         <div text-center>
           <h4>Login</h4>
         </div>
 
           <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
             <ion-label floating>Email</ion-label>
-            <ion-input type="text" formControlName="email" ></ion-input>>
+            <ion-input type="text" formControlName="email" [(ngModel)]="user.email"></ion-input>>
           </ion-item>
 
           <div ngxErrors="email" #emailErrors="ngxErrors" class="div-error">
@@ -16,7 +19,7 @@
 
          <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
             <ion-label floating>Password</ion-label>
-            <ion-input type="password" formControlName="password" ></ion-input>>
+            <ion-input type="password" formControlName="password" [(ngModel)]="user.password" ></ion-input>>
           </ion-item>
 
           <div ngxErrors="password" #passwordErrors="ngxErrors" class="div-error">
@@ -32,7 +35,7 @@
           </div>
 
         <div padding>
-            <button ion-button full type="submit">Login</button>
+            <button ion-button full type="submit" [disabled]="!loginForm.valid">Login</button>
         </div>
 
         </form>
