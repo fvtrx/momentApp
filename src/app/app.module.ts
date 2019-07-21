@@ -14,6 +14,7 @@ import { RegisterPage } from '../pages/register/register';
 import { ListPage } from '../pages/list/list';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BookingPage } from '../pages/booking/booking';
+import { ActivityPage } from "../pages/activity/activity";
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -23,6 +24,7 @@ import { AuthService } from '../providers/auth-service/auth.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { BookingDetailsService } from '../providers/booking-details/booking-details.service';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     TabsPage,
     ListPage,
     ProfilePage,
-    BookingPage
+    BookingPage,
+    ActivityPage
   ],
   imports: [
     BrowserModule,
@@ -55,13 +58,15 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     TabsPage,
     ListPage,
     ProfilePage,
-    BookingPage
+    BookingPage,
+    ActivityPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    BookingDetailsService
   ]
 })
 export class AppModule {}
