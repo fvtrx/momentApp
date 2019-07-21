@@ -35,13 +35,6 @@ export class HomePage {
           this.userData = this.afDatabase.object(`user/${data.uid}`).valueChanges();
 
         }
-        // else {
-        //   this.toastCtrl.create({
-        //     message: `Could not find authentication details`,
-        //     duration: 3000
-        //   }).present();
-        //   this.navCtrl.push(LoginPage);
-        // }
       })
     }
 
@@ -55,16 +48,6 @@ export class HomePage {
           alert.present();
           this.navCtrl.setRoot(LoginPage);
       });
-
-      // if (logout) {
-      //   let alert = this.alertCtrl.create({
-      //     title: 'Success!',
-      //     subTitle: 'Your account has been created. Login now',
-      //     buttons: ['OK']
-      //   });
-      //   alert.present();
-      //   this.navCtrl.push(LoginPage);
-      // }
     }
 
     getEmail(){
