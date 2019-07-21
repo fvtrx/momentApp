@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 import { HomePage } from "../home/home";
-import { ProfilePage } from "../profile/profile";
+// import { ProfilePage } from "../profile/profile";
 import { BookingPage } from "../booking/booking";
+import { ActivityPage } from "../activity/activity";
 // import { NavController } from "ionic-angular";
 
 @Component({
@@ -11,5 +12,5 @@ import { BookingPage } from "../booking/booking";
 export class TabsPage {
   tab1Root = HomePage;
   tab2Root = BookingPage;
-  tab3Root = ProfilePage;
+  tab3Root = ActivityPage;
 }
