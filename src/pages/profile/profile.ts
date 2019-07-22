@@ -6,6 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { HomePage } from '../home/home';
 import { AuthService } from '../../providers/auth-service/auth.service';
 import { Observable } from 'rxjs';
+import { LoginPage } from '../login/login';
 // import { AuthService } from '../../providers/auth-service/auth.service';
 
 /**
@@ -25,7 +26,6 @@ export class ProfilePage {
   user = {} as User;
   userData: Observable<any>
 
-  private User: firebase.User;
 
   constructor( private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, private auth: AuthService,
     public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
@@ -70,21 +70,17 @@ export class ProfilePage {
     })
   }
 
-  // getName() {
-  //   this.afAuth.authState.subscribe(data => {
-  //     if (data.email && data.uid) {
-  //       this.userData = this.afDatabase.object(`user/${data.uid}`).valueChanges();
-  //     }
-  //     // else {
-  //     //   let alert = this.alertCtrl.create({
-  //     //     title: 'Error!',
-  //     //     subTitle: 'Profile is not updated.',
-  //     //     buttons: ['OK']
-  //     //   });
-  //     //   alert.present();
-  //     // }
-  //   })
-  // }
+  logOut(): void {
+    this.auth.logOutUser().then( response => {
+        let alert = this.alertCtrl.create({
+          title: 'Success!',
+          subTitle: 'You have been logout from Moment',
+          buttons: ['OK']
+        });
+        alert.present();
+        this.navCtrl.setRoot(LoginPage);
+    });
+  }
 
   getEmail() {
     return this.user && this.user.email;
