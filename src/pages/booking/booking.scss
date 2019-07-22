@@ -114,5 +114,38 @@
   form input[type="password"]:focus {
     border-color:cornflowerblue;
   }
+
+  .postcode {
+    margin-left: -10px;
+  }
+
+  #bookingButton {
+    padding:15px 50px;
+    width:70%;
+    margin-left: 12%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background: rgb(5, 5, 5);
+    border:none;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    display:inline-block;
+    clear:right;
+    font-size: 16px;
+    -webkit-transition:0.2s ease all;
+       -moz-transition:0.2s ease all;
+        -ms-transition:0.2s ease all;
+         -o-transition:0.2s ease all;
+            transition:0.2s ease all;
+  }
+
+  .div-error{
+    padding: 0px;
+    margin-left: 6px;
+    > .text-valid {
+      color: red;
+    }
+  }
 }
 

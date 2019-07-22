@@ -13,7 +13,7 @@
         <img src="../../assets/imgs/momentlogo.png">
     </div>
     <ion-buttons end>
-      <button ion-button icon-only (click)="logout()">
+      <button ion-button icon-only (click)="logOut()">
         <ion-icon name="md-exit" color="dark"></ion-icon>
       </button>
     </ion-buttons>
@@ -32,19 +32,56 @@
        </div>
     </ion-card>
 
-    <form >
-      <label for="firstName">First Name</label>
-      <input type="text" name="firstName" placeholder="Your first name" autocomplete="off" required/>
+    <form id="bookingForm" (ngSubmit)="makeBooking(bookingsDetails)" [formGroup]="bookingForm">
 
-      <label for="lastName">Last Name</label>
-      <input type="text" name="lastName" placeholder="Your last name" autocomplete="off" />
+        <label for="eventDate">Event Date</label>
+        <input type="date" formControlName="eventDate" placeholder="Your event date" [(ngModel)]="bookingsDetails.eventDate" autocomplete="off" />
 
-      <label for="firstName">First Name</label>
-      <input type="text" name="firstName" placeholder="Your first name" autocomplete="off" required/>
+      <!-- <div ngxErrors="eventDate" #eventDateErrors="ngxErrors" class="div-error">
+        <div [ngxError]="['eventDate', 'required']" [when]="['touched', 'dirty']" class="text-valid"> It should not be empty</div>
+      </div> -->
+
+      <div [ngClass]="{ invalid: addressErrors.hasError('*', ['touched', 'dirty']) }">
+        <label for="address">Address</label>
+        <input type="text" formControlName="address" placeholder="Address" [(ngModel)]="bookingsDetails.address" autocomplete="off" required/>
+      </div>
+
+      <div ngxErrors="address" #addressErrors="ngxErrors" class="div-error">
+        <div [ngxError]="['address', 'required']" [when]="['touched', 'dirty']" class="text-valid">It should not be empty</div>
+      </div>
+
+      <label for="streetName">Street Name</label>
+      <input type="text" formControlName="streetName" placeholder="Street name" [(ngModel)]="bookingsDetails.streetName"  autocomplete="off" required/>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-9 push-3>
+            <div><label for="city">City</label>
+            <input type="text" formControlName="city" placeholder="City" [(ngModel)]="bookingsDetails.city" autocomplete="off" required/></div>
+          </ion-col>
+          <ion-col col-3 pull-9>
+            <div class="postcode">
+              <label for="postCode">Postcode</label>
+              <input type="text" formControlName="postCode" placeholder="Postcode" [(ngModel)]="bookingsDetails.postCode" autocomplete="off" required/>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <label for="eventType">Event Type</label>
+      <input type="text" formControlName="eventType" placeholder="Type your type of event here" [(ngModel)]="bookingsDetails.eventType" autocomplete="off" required/>
+
+      <label for="mobileNumber">Mobile Number</label>
+      <input type="text" formControlName="mobileNumber" placeholder="Phone number that can be contacted" [(ngModel)]="bookingsDetails.mobileNumber" autocomplete="off" required/>
+
+      <div class="form-error">
+        {{bookingError}}
+      </div>
+
+      <button ion-button full id="bookingButton" type="submit" [disabled]="!bookingForm.valid" >Book</button>
+
     </form>
 
-    <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="date_today"></ion-datetime>
-
-    <button ion-button full>Book</button>
+    <!-- <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="date_today"></ion-datetime> -->
 
 </ion-content>
