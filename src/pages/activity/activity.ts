@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Bookings } from "../../models/bookings";
 import { BookingDetailsService } from '../../providers/booking-details/booking-details.service';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
+import { LoginPage } from '../login/login';
+import { AuthService } from '../../providers/auth-service/auth.service';
+
 
 /**
  * Generated class for the ActivityPage page.
@@ -22,7 +25,8 @@ export class ActivityPage {
 
   bookingLists$: Observable<Bookings[]>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private bookings: BookingDetailsService)
+  constructor(public navCtrl: NavController, public navParams: NavParams,private bookings: BookingDetailsService,
+  private alertCtrl: AlertController, private auth: AuthService)
   {
     this.bookingLists$ = this.bookings
     .getBookingDetails() //return Booking List
@@ -37,8 +41,16 @@ export class ActivityPage {
 
 
 
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad ActivityPage');
-  // }
+ logOut(): void {
+  this.auth.logOutUser().then( response => {
+      let alert = this.alertCtrl.create({
+        title: 'Success!',
+        subTitle: 'You have been logout from Moment',
+        buttons: ['OK']
+      });
+      alert.present();
+      this.navCtrl.setRoot(LoginPage);
+  });
+ }
 
 }
