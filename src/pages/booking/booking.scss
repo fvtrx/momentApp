@@ -12,10 +12,10 @@
     padding: 0px;
   }
 
-  #cardHeader{
+  #bookingHeader{
     z-index: 0;
     height: 35%;
-    background-image: url('../../assets/imgs/city.jpg');
+    background-image: url('../../assets/imgs/camera-phone-laptop-a-photographer-s-desk.jpg');
     background-size: cover;
     position: relative;
     display: flex;
@@ -30,7 +30,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+      background-image: linear-gradient(to bottom right,#002f4b,#7c2615);
       opacity: .7;
     }
 

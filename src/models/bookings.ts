@@ -1,5 +1,5 @@
 export interface Bookings {
-  key?: string;
+  key: string;
   address: string;
   streetName: string;
   postCode: number;
