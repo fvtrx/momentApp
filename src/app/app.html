@@ -9,7 +9,7 @@
 </div>
 
 
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- <ion-nav [root]="rootPage"></ion-nav> -->
 
 <ion-menu [content]="content">
   <ion-header>
@@ -25,10 +25,6 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
-      <!-- <ion-item (click)="logout()" *ngIf="auth.authenticated">
-        <ion-icon name="log-out" item-left></ion-icon>
-        Log out
-      </ion-item> -->
 
       <ion-item (click)="login()" *ngIf="!auth.authenticated">
         <ion-icon name="log-in" item-left></ion-icon>

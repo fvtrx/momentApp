@@ -4,12 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { timer } from 'rxjs/observable/timer';
 
-import { ListPage } from '../pages/list/list';
+// import { ListPage } from '../pages/list/list';
 import {LoginPage} from '../pages/login/login';
 // import { RegisterPage } from '../pages/register/register';
-// import {ProfilePage} from '../pages/profile/profile';
 import { AuthService } from '../providers/auth-service/auth.service';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ProfilePage } from '../pages/profile/profile';
 // import { Observable } from 'rxjs';
 // import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -33,7 +33,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'List', component: ListPage }
+      { title: 'Profile', component: ProfilePage }
     ];
 
   }
@@ -77,7 +77,7 @@ export class MyApp {
     this.nav.setRoot(LoginPage);
   }
 
-  // logout() {
+  // logOutUser() {
   //   const root = this.app.getRootNav();
   //   root.popToRoot();
   // }

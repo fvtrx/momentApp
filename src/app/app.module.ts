@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 
 import {AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -25,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BookingDetailsService } from '../providers/booking-details/booking-details.service';
+import { QrReaderPage } from '../pages/qr-reader/qr-reader';
 
 
 @NgModule({
@@ -37,7 +40,8 @@ import { BookingDetailsService } from '../providers/booking-details/booking-deta
     ListPage,
     ProfilePage,
     BookingPage,
-    ActivityPage
+    ActivityPage,
+    QrReaderPage
   ],
   imports: [
     BrowserModule,
@@ -59,14 +63,16 @@ import { BookingDetailsService } from '../providers/booking-details/booking-deta
     ListPage,
     ProfilePage,
     BookingPage,
-    ActivityPage
+    ActivityPage,
+    QrReaderPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    BookingDetailsService
+    BookingDetailsService,
+    BarcodeScanner
   ]
 })
 export class AppModule {}
