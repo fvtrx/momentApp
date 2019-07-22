@@ -1,0 +1,41 @@
+<!--
+  Generated template for the QrReaderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>
+    <div id="appLogo">
+        <img src="../../assets/imgs/momentlogo.png">
+    </div>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="md-exit" color="dark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div id="qrLogo">
+    <img src="../../assets/imgs/qr-code.png" alt="">
+    <h2 id="qrTitle">Photo-QR</h2>
+    <h3 id="qrDesc">Verify your photographer <br> by scanning their QR Code</h3>
+  </div>
+
+  <button ion-button color="secondary" id="scanButton" (click)="scan()">Scan QR Code</button>
+
+  <ion-list>
+    <ion-item>
+      <h3>cancelled: {{data.cancelled}}</h3>
+      <h3>format: {{data.format}}</h3>
+      <h3>text: {{data.text}}</h3>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
